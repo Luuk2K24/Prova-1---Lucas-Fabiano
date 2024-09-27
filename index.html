@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova - Jogo Herói vs Vilão</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .life-bar {
+            transition: width 0.5s ease-in-out; 
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!-- Botão para iniciar o jogo -->
+    <div v-if="!gameStarted" class="start-game">
+        <button @click="startGame">Iniciar Jogo</button>
+    </div>
+
+    <!-- Jogo é exibido após o início -->
+    <div v-else>
+        <div class="character-container">
+            <div class="character">
+                <div class="character-name">{{ hero.name }}</div>
+                <div class="life-bar hero-life-bar" :style="{ width: hero.life + '%' }">Vida: {{ hero.life }}</div>
+                <div class="sprite">
+                    <img src="img/bonoro.avif" alt="Herói - Bonoro"/>
+                </div>
+                <div class="actions">
+                    <button @click="attack(true)">Atacar</button>
+                    <button @click="defense(true)">Defender</button>
+                    <button @click="usePotion(true)">Usar Poção</button>
+                    <button @click="flee(true)">Fugir</button>
+                </div>
+            </div>
+            
+            <div class="character">
+                <div class="character-name">{{ villain.name }}</div>
+                <div class="life-bar villain-life-bar" :style="{ width: villain.life + '%' }">Vida: {{ villain.life }}</div>
+                <div class="sprite">
+                    <img src="img/luli.webp" alt="Vilão - Lula"/>
+                </div>           
+            </div>
+        </div>
+
+        <!-- Exibe botão de reiniciar se o jogo acabar -->
+        <div v-if="gameOver">
+            <button @click="restartGame">Reiniciar Jogo</button>
+        </div>
+        
+        <!-- Exibe notificações durante o jogo -->
+        <div v-if="notification" class="notification">{{ notification }}</div>
+    </div>
+
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>

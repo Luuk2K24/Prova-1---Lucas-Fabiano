@@ -1,0 +1,143 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #deecf2 30%, #a2d7e5 100%); 
+    background-image: url('img/bg.webp');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+#app {
+    text-align: center;
+    width: 100%;
+    max-width: 920px;
+}
+
+.character {
+    background-color: #ffffff;
+    border: 2px solid #1d509f;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 15px;
+    width: 300px;
+    height: 450px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.character-name {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 2;
+}
+
+.life-bar {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.sprite {
+    height: 60%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 90px; 
+}
+
+.sprite img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+}
+
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background-color: #43e91a;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #f1ee0e;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+.hero-life-bar, .villain-life-bar {
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.hero-life-bar {
+    background-color: #43e91a;
+}
+
+.villain-life-bar {
+    background-color: #d9534f;
+}
+
+.character-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.notification {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: opacity 0.5s ease;
+    z-index: 1000;
+}
