@@ -14,12 +14,10 @@
 </head>
 <body>
 <div id="app">
-    <!-- Botão para iniciar o jogo -->
     <div v-if="!gameStarted" class="start-game">
         <button @click="startGame">Iniciar Jogo</button>
     </div>
 
-    <!-- Jogo é exibido após o início -->
     <div v-else>
         <div class="character-container">
             <div class="character">
@@ -45,12 +43,10 @@
             </div>
         </div>
 
-        <!-- Exibe botão de reiniciar se o jogo acabar -->
         <div v-if="gameOver">
             <button @click="restartGame">Reiniciar Jogo</button>
         </div>
         
-        <!-- Exibe notificações durante o jogo -->
         <div v-if="notification" class="notification">{{ notification }}</div>
     </div>
 
